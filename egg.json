@@ -1,0 +1,18 @@
+{
+  "$schema": "https://x.nest.land/eggs@0.3.4/src/schema.json",
+  "name": "deno_hosts",
+  "description": "The hosts file parsing and resolver module for Deno",
+  "homepage": "https://github.com/thelocalcoder/deno-hosts",
+  "version": "3.0.0",
+  "releaseType": "major",
+  "files": [
+    "./**/*"
+  ],
+  "checkFormat": false,
+  "checkTests": false,
+  "checkInstallation": false,
+  "check": true,
+  "unlisted": false,
+  "entry": "./mod.ts",
+  "ignore": []
+}

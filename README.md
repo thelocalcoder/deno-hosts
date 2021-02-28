@@ -1,5 +1,9 @@
 # 🦖 Deno-Hosts
 
+
+[![nest badge](https://nest.land/badge.svg)](https://nest.land/package/deno_hosts)
+
+
 **The hosts file parsing and resolver module for Deno**
 
 
@@ -13,7 +17,7 @@ These lookups are "extremely inexpensive" compared to normal IP reverse DNS look
 ## Usages
 
 ```javascript
-import Hosts from 'https://deno.land/x/deno_hosts@v1.0.0/mod.ts';
+import Hosts from 'https://deno.land/x/deno_hosts@v1.0.1/mod.ts';
 
 const hostsPath = "/etc/hosts";  // Hosts file path
 
@@ -39,6 +43,29 @@ console.log(hosts.toObject());
     }
 ]
 ```
+
+
+## Deno Registry Links
+
+- [Nest.land -> deno_hosts](https://nest.land/package/deno_hosts)
+- [Deno.land -> deno_hosts](https://deno.land/x/deno_hosts)
+
+**Usages from Nest.land**
+
+```javascript
+import Hosts from 'https://x.nest.land/deno_hosts@2.0.0/mod.ts';
+```
+
+**Usages from Deno.land**
+
+```javascript
+import Hosts from 'https://deno.land/x/deno_hosts/mod.ts'; // Latest version
+```
+
+```javascript
+import Hosts from 'https://deno.land/x/deno_hosts@v1.0.1/mod.ts' // Specific Version
+```
+
 
 ## API
 
@@ -83,7 +110,7 @@ class Hosts {
 - [x] Write Inital Readme content.
 - [ ] Write HowTo Guide.
 - [x] Publish at Deno.land
-- [ ] Publish at Nest.land
+- [x] Publish at Nest.land
 - [ ] Setup auto Testing using Travis CI
 
 
