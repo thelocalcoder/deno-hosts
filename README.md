@@ -13,7 +13,7 @@ These lookups are "extremely inexpensive" compared to normal IP reverse DNS look
 ## Usages
 
 ```javascript
-import Hosts from './mod.ts';
+import Hosts from 'https://deno.land/x/deno_hosts@v1.0.0/mod.ts';
 
 const hostsPath = "/etc/hosts";  // Hosts file path
 
@@ -82,7 +82,7 @@ class Hosts {
 - [ ] Write JSDoc for class methods.
 - [x] Write Inital Readme content.
 - [ ] Write HowTo Guide.
-- [ ] Publish at Deno.land
+- [x] Publish at Deno.land
 - [ ] Publish at Nest.land
 - [ ] Setup auto Testing using Travis CI
 
