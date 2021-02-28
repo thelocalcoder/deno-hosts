@@ -2,14 +2,16 @@
 
 **The hosts file parsing and resolver module for Deno**
 
+
 Deno-Hosts is a Deno (Typescript) module for parsing hosts files and performing reverse IP -> hostname or vice versa lookups which are file or text data based (e.g. via `/etc/hosts`).
 
 This can be helpful to determine if there is a prettier (or known) hostname available for an IP address.
 
 These lookups are "extremely inexpensive" compared to normal IP reverse DNS lookups because no network communication is required, as these lookups are all file-based (offline)! Naturally, the (obvious) tradeoff/downside is that this only works in cases where the IP mapping exists in the hostsfile.
 
+
 ## Usages
----
+
 ```javascript
 import Hosts from './mod.ts';
 
@@ -22,7 +24,6 @@ console.log(hosts.toObject());
 
 
 ### Output
----
 
 ```json
 [
@@ -40,7 +41,7 @@ console.log(hosts.toObject());
 ```
 
 ## API
----
+
 - **hosts.toObject()** - For geeting JSON from hosts file.
 - **hosts.toText()** - Re-convert text from parsed hosts file.
 - **hosts.resolve(hostname : string)** - Lookup hostname -> IP (Return `undefined` in case of not found).
@@ -76,7 +77,7 @@ class Hosts {
 
 
 ## ToDo
----
+
 - [x] Write Test cases.
 - [ ] Write JSDoc for class methods.
 - [x] Write Inital Readme content.
@@ -87,19 +88,19 @@ class Hosts {
 
 
 ## References
----
+
 1. [What is hosts file (wiki)](https://en.wikipedia.org/wiki/Hosts_%28file%29)
 2. [hosts-parser](https://github.com/imyelo/hosts-parser)
 3. [go-hostsfile](https://github.com/jaytaylor/go-hostsfile)
 
 
 ## License
----
+
 Permissive MIT license.
 
 
 ## Contact
----
+
 You are more than welcome to open issues and send pull requests if you find a bug or want a new feature.
 
 If you appreciate this module please feel free to drop me a line and tell me! It's always nice to hear from people who have benefitted from my work.
