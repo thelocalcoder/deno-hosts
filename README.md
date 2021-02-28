@@ -1,5 +1,9 @@
 # 🦖 Deno-Hosts
 
+
+[![nest badge](https://nest.land/badge.svg)](https://nest.land/package/deno_hosts)
+
+
 **The hosts file parsing and resolver module for Deno**
 
 
@@ -13,7 +17,7 @@ These lookups are "extremely inexpensive" compared to normal IP reverse DNS look
 ## Usages
 
 ```javascript
-import Hosts from 'https://deno.land/x/deno_hosts@v1.0.0/mod.ts';
+import Hosts from 'https://deno.land/x/deno_hosts@v1.0.1/mod.ts';
 
 const hostsPath = "/etc/hosts";  // Hosts file path
 
