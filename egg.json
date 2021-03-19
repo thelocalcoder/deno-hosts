@@ -3,7 +3,7 @@
   "name": "deno_hosts",
   "description": "The hosts file parsing and resolver module for Deno",
   "homepage": "https://github.com/thelocalcoder/deno-hosts",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "releaseType": "major",
   "files": [
     "./**/*"
