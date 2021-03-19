@@ -1,0 +1,94 @@
+<!doctype html><html data-reactroot=""><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><title>🦖 Deno-Hosts</title><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/assets/index.css"/><link rel="stylesheet" href="/assets/prism_tomorrow.css"/></head><body><article><h1>🦖 Deno-Hosts</h1>
+<p><a href="https://nest.land/package/deno_hosts"><img src="https://nest.land/badge.svg" alt="nest badge"></a></p>
+<p><strong>The hosts file parsing and resolver module for Deno</strong></p>
+<p>Deno-Hosts is a Deno (Typescript) module for parsing hosts files and performing reverse IP -&gt; hostname or vice versa lookups which are file or text data based (e.g. via <code>/etc/hosts</code>).</p>
+<p>This can be helpful to determine if there is a prettier (or known) hostname available for an IP address.</p>
+<p>These lookups are &quot;extremely inexpensive&quot; compared to normal IP reverse DNS lookups because no network communication is required, as these lookups are all file-based (offline)! Naturally, the (obvious) tradeoff/downside is that this only works in cases where the IP mapping exists in the hostsfile.</p>
+<h2 id="usages">Usages<a class="anchor" href="#usages">§</a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Hosts</span></span> <span class="token keyword module">from</span> <span class="token string">'<a class="token url-link" href="https://deno.land/x/deno_hosts@v1.0.1/mod.ts">https://deno.land/x/deno_hosts@v1.0.1/mod.ts</a>'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> hostsPath <span class="token operator">=</span> <span class="token string">"/etc/hosts"</span><span class="token punctuation">;</span>  <span class="token comment">// Hosts file path</span>
+
+<span class="token keyword">const</span> hosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hosts</span><span class="token punctuation">(</span><span class="token maybe-class-name">Deno</span><span class="token punctuation">.</span><span class="token method function property-access">readTextFileSync</span><span class="token punctuation">(</span>hostsPath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>hosts<span class="token punctuation">.</span><span class="token method function property-access">toObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="output">Output<a class="anchor" href="#output">§</a></h3>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"ip"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>      
+        <span class="token property">"hostname"</span><span class="token operator">:</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span>
+        <span class="token property">"alias"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"ip"</span><span class="token operator">:</span> <span class="token string">"127.0.1.1"</span><span class="token punctuation">,</span>
+        <span class="token property">"hostname"</span><span class="token operator">:</span> <span class="token string">"local.test"</span><span class="token punctuation">,</span>
+        <span class="token property">"alias"</span><span class="token operator">:</span> <span class="token string">"local"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h2 id="deno-registry-links">Deno Registry Links<a class="anchor" href="#deno-registry-links">§</a></h2>
+<ul>
+<li><a href="https://nest.land/package/deno_hosts">Nest.land -&gt; deno_hosts</a></li>
+<li><a href="https://deno.land/x/deno_hosts">Deno.land -&gt; deno_hosts</a></li>
+</ul>
+<p><strong>Usages from Nest.land</strong></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Hosts</span></span> <span class="token keyword module">from</span> <span class="token string">'<a class="token url-link" href="https://x.nest.land/deno_hosts@2.0.0/mod.ts">https://x.nest.land/deno_hosts@2.0.0/mod.ts</a>'</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Usages from Deno.land</strong></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Hosts</span></span> <span class="token keyword module">from</span> <span class="token string">'<a class="token url-link" href="https://deno.land/x/deno_hosts/mod.ts">https://deno.land/x/deno_hosts/mod.ts</a>'</span><span class="token punctuation">;</span> <span class="token comment">// Latest version</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Hosts</span></span> <span class="token keyword module">from</span> <span class="token string">'<a class="token url-link" href="https://deno.land/x/deno_hosts@v1.0.1/mod.ts">https://deno.land/x/deno_hosts@v1.0.1/mod.ts</a>'</span> <span class="token comment">// Specific Version</span>
+</code></pre>
+<h2 id="api">API<a class="anchor" href="#api">§</a></h2>
+<ul>
+<li><strong>hosts.toObject()</strong> - For geeting JSON from hosts file.</li>
+<li><strong>hosts.toText()</strong> - Re-convert text from parsed hosts file.</li>
+<li><strong>hosts.resolve(hostname : string)</strong> - Lookup hostname -&gt; IP (Return <code>undefined</code> in case of not found).</li>
+<li><strong>hosts.reverse(ip : string)</strong> - Lookup IP -&gt; hostname (Return <code>undefined</code> in case of not found).</li>
+<li><strong>hosts.match(str: string)</strong> - Lookup and match ip/hostname/alias and return a Host object.</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript">type <span class="token maybe-class-name">Host</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    ip<span class="token operator">:</span> string<span class="token punctuation">,</span>
+    hostname<span class="token operator">:</span> string<span class="token punctuation">,</span>
+    alias<span class="token operator">:</span> string <span class="token operator">|</span> <span class="token keyword null nil">null</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Hosts</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>hosts <span class="token operator">:</span> string<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token known-class-name class-name">Object</span><span class="token operator">&lt;</span><span class="token maybe-class-name">Hosts</span><span class="token operator">></span>
+    <span class="token function">toObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token maybe-class-name">Hosts</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token function">toText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> string
+    <span class="token function">resolve</span><span class="token punctuation">(</span>hostname <span class="token operator">:</span> string<span class="token punctuation">)</span> <span class="token operator">:</span> string <span class="token operator">|</span> <span class="token keyword nil">undefined</span>
+    <span class="token function">reverse</span><span class="token punctuation">(</span>ip<span class="token operator">:</span> string<span class="token punctuation">)</span> <span class="token operator">:</span> string <span class="token operator">|</span> <span class="token keyword nil">undefined</span>
+    <span class="token function">match</span><span class="token punctuation">(</span>str <span class="token operator">:</span> string<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token maybe-class-name">Host</span> <span class="token operator">|</span> <span class="token keyword nil">undefined</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Note:</strong> Hosts file location depends on OS. So use according your OS and for checking run time env OS use <code>Deno.build</code> stable API.</p>
+<ul>
+<li>Windows - <code>C:/Windows/System32/drivers/etc/hosts</code></li>
+<li>Linux - <code>/etc/hosts</code></li>
+<li>Mac OS X - <code>/private/etc/hosts</code></li>
+</ul>
+<h2 id="todo">ToDo<a class="anchor" href="#todo">§</a></h2>
+<ul>
+<li>[x] Write Test cases.</li>
+<li>[ ] Write JSDoc for class methods.</li>
+<li>[x] Write Inital Readme content.</li>
+<li>[ ] Write HowTo Guide.</li>
+<li>[x] Publish at Deno.land</li>
+<li>[x] Publish at Nest.land</li>
+<li>[ ] Setup auto Testing using Travis CI</li>
+</ul>
+<h2 id="references">References<a class="anchor" href="#references">§</a></h2>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Hosts_%28file%29">What is hosts file (wiki)</a></li>
+<li><a href="https://github.com/imyelo/hosts-parser">hosts-parser</a></li>
+<li><a href="https://github.com/jaytaylor/go-hostsfile">go-hostsfile</a></li>
+</ol>
+<h2 id="license">License<a class="anchor" href="#license">§</a></h2>
+<p>Permissive MIT license.</p>
+<h2 id="contact">Contact<a class="anchor" href="#contact">§</a></h2>
+<p>You are more than welcome to open issues and send pull requests if you find a bug or want a new feature.</p>
+<p>If you appreciate this module please feel free to drop me a line and tell me! It's always nice to hear from people who have benefitted from my work.</p>
+<p>Email: <a href="mailto:hello@ganeshagrawal.com">hello (at) ganeshagrawal.com</a></p>
+<p>Twitter: <a href="https://twitter.com/imganeshagrawal">@imganeshagrawal</a></p></article><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
